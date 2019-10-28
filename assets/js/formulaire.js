@@ -154,7 +154,7 @@ function verif(event){
         missQuestion.style.color="green";
     }  
 }
-var valid=document.getElementById("OK");
+var valid=document.getElementById("check");
 valid.addEventListener("click",accept);
 function accept(){
    let conf=confirm("vous confirmez que les champs remplis sont vrai ?");
