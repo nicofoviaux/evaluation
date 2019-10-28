@@ -67,7 +67,7 @@ function verif(event){
         missAd.textContent="champ vide";
         missAd.style.color="yellow"
     }
-    if(!filtre4.test(ad.value)){
+    else if(!filtre4.test(ad.value)){
         event.preventDefault();
         missAd.textContent="l'adresse n'est pas valide elle doit comporté:au moins 1 chiffre et ou bis , rue,un espace,et le nom de la rue";    
         missAd.style.color="red";
@@ -76,7 +76,6 @@ function verif(event){
       missAd.textContent= "OK";
       missAd.style.color="green";
     } 
-    
     if(CP.validity.valueMissing){
         event.preventDefault();
         missCP.textContent= "champ vide";
@@ -85,25 +84,25 @@ function verif(event){
     else if(!filtre1.test(CP.value)){
         event.preventDefault();
         missCP.textContent= "code postale invalide verifié qu'il est bien composé de 5 chiffres";
-        missCP.style.color="yellow";
+        missCP.style.color="red";
     }
     else{
       missCP.textContent= "OK";
       missCP.style.color="green";
     }
-    if(!filtre2.test(mail.value)){
+    if(mail.validity.valueMissing){
         event.preventDefault();
-        missEmail.textContent= "verifiez votre adresse mail";   
+        missEmail.textContent="champ vide";
+        missEmail.style.color="yellow";
+    }
+    else if(!filtre2.test(mail.value)){
+        event.preventDefault();
+        missEmail.textContent= "verifiez que votre adresse mail contien bien le @+la boite et le .com ou.fr";
+        missEmail.style.color="red";   
     }
     else{
-      missEmail.textContent= "*";
+      missEmail.textContent= "OK";
+      missEmail.style.color="green";
     }
-    if(!filtre3.test(tel.value)){
-      event.preventDefault();
-      missTel.textContent= "verifiez votre numero de telephone il peut etre composé ********** ou **.**.**.**.** ou ** ** ** ** **";     
-    }
-    else{
-      missTel.textContent= "*";
-    }
-    console.log(ddn)
+    console.log(ddn.value);
 }
