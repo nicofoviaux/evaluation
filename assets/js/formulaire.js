@@ -6,27 +6,34 @@ function verif(event){
     var ddn=document.getElementById("date");
     var CP= document.getElementById("cpostal");
     var ad=document.getElementById("adresse");
-    var city= document.getElementById("");
-    var mail= document.getElementById("");
-    var filtre=new RegExp(/^.+[a-zA-Z-0-9]+$/);// creation du filtre "au moins 1 lettre ou un chiffre et caractere speciaux"
+    var city= document.getElementById("ville");
+    var mail= document.getElementById("email");
+    var filtre=new RegExp(/^.+[a-z|A-Z|0-9]+$/);// creation du filtre "au moins 1 lettre ou un chiffre et caractere speciaux"
     var filtre1=new RegExp(/^((?:[013-9]\d)|(?:2[0-9ABab]))\d{3}$/)// filtre du code postale il doit contenir 5 nombres sauf la corse qui contien des lettres
     var filtre2=new RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/i);// filtre email il divise le mail en 4 blocs le 1er accepte lettre, chiffre et caractere le 2nd @ obligatoire 3em pour la sone de texte et le 4em demande un .et des caractéres 
     var filtre4=new RegExp(/^(\d+)(\D*)(\s)(\D+)(\s)(.+)$/g)// filtre adresse il divise en 6 bloc don le 1er chiffre obligatoire le second pour bis (facultatif) un espace obligatoire la voie /rue ou autre un autre espace obligatoire et le reste de l adresse
-    var missEnt=document.getElementById("missEnt1");
-    var missPer=document.getElementById("missPer");
-    var missCity=document.getElementById("missCity");
-    var missAd=document.getElementById("missAd");
-    var missEmail=document.getElementById("missEmail");
+    var missNom=document.getElementById("missnom");
+    var missPre=document.getElementById("misspre");
+    var missDdn=document.getElementById("missddn");
     var missCP=document.getElementById("missCP");
-    var missTel=document.getElementById("missTel")
+    var missAd=document.getElementById("missAd");
+    var missCity=document.getElementById("missCity");
+    var missEmail=document.getElementById("missEmail");
   
-    if(!filtre.test(ent.value)){// on applique le filtre sur la value de la variable ent 
+    if(!filtre.test(nom.value)){// on applique le filtre sur la value de la variable ent 
         event.preventDefault();// si erreur le formulaire et bloqué avec event.preventdefault
-        missEnt.textContent= "veuillez saisir le nom de l'entreprise";// text content change le texte entre >< dune balise html
-    // missEnt.style.color="green"; si on le desire on peut changer la couleur du text comme l'exemple pour le vert (mis en commentaire car j'utilise une feuille css)
+        missNom.textContent= "veuillez saisir le nom votre nom";// text content change le texte entre >< dune balise html
+        missNom.style.color="red"; //si on le desire on peut changer la couleur du text comme l'exemple pour le vert (mis en commentaire car j'utilise une feuille css)
     }
-    else{
-      missEnt.textContent= "*";// si la condition est rempli je remet a l'origine
+    else if(nom.validity.valueMissing){
+        event.preventDefault();
+        missNom.textContent="champs vide"
+        missNom.style.color="orange"
+
+     
+    }else{
+        missNom.textContent= "OK";// si la condition est rempli je remet a l'origine
+        missNom.style.color="red";
     }
     if(!filtre.test(per.value)){
         event.preventDefault();
