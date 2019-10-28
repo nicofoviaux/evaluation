@@ -74,8 +74,8 @@
 <!--checked permet d'avoir quelques chose de pré-coché-->
             </div>
             <div class="col">
-                <label for="ddn">Date de naissance: </label><span missddn>*</span>
-                <input  class="form-control" type="number" id="ddn" name="ddn" value="" required>
+                <label for="ddn">Date de naissance: </label><span id="missddn">*</span>
+                <input  class="form-control" type="date" id="ddn" name="ddn" max="" required>
             </div>
             <div class="col">
                 <label for="cpostal">Code postal: </label><span id="missCP"></span>
@@ -99,17 +99,17 @@
             <legend>Votre demande</legend>
 <!--datalistpermet de cibler une liste d'éléments via un champ <input> et Option c'est les choix et value les trucs que l'ont mes comme choix-->
 <div class="col">
-    <label for="sujets">Sujet:</label><span>*</span>
+    <label for="sujets">Sujet:</label><span id="misssujet">*</span>
 <!--select permet de faire comme datalist mais sans input et en selectionnant par défaults le choix entré en premier dans la liste-->
 <select  id="sujets" class="coord custom-select"  required> 
-    <option value="" disabled selected>selectionnez votre demande</option>
+    <option value="0" disabled selected>selectionnez votre demande</option>
     <option value="Question sur le produit" >Question sur le produit</option>
     <option value="Réclamation">Réclamation</option>
     <option value="Autres">Autres</option>
 </select>
 </div>
 <div class="col">
-<label for="question" id="question" >Votre question: </label><span>*</span>
+<label for="question" >Votre question: </label><span id="missquestion">*</span>
 <textarea class="form-control"  placeholder="veuillez écrire votre demande" name="question" id="question" cols="50" rows="2" required></textarea>
 <br>    
 </div>
