@@ -14,7 +14,7 @@ if(TOT>500){
 else {
     PORT= Math.max(6,TOT*(2/100));//math.max me sert a definir ma valeur minimale de mes frais de ports
 }
-if(TOT>100 && TOT<200){
+if(TOT=>100 && TOT<=200){
     REM=5;
 }else if(TOT>200){
     REM=10;
