@@ -16,7 +16,7 @@ function verif(event){
     var missPre=document.getElementById("misspre");
     var missDdn=document.getElementById("missddn");
     var missCP=document.getElementById("missCP");
-    var missAd=document.getElementById("missAd");
+    var missAd=document.getElementById("missAD");
     var missCity=document.getElementById("missCity");
     var missEmail=document.getElementById("missEmail");
     
@@ -37,37 +37,59 @@ function verif(event){
     if(prenom.validity.valueMissing){
         event.preventDefault();
         missPre.textContent= "champ vide";
-        missPre.style.color="yellow"
+        missPre.style.color="yellow";
       }
       else if(!filtre.test(prenom.value)){
         event.preventDefault();
-        missPre.textContent="veuillez saisir des lettres"
-        missPre.style.color="orange"
+        missPre.textContent="veuillez saisir des lettres";
+        missPre.style.color="red";
     }
     else{
         missPre.textContent= "OK";
         missPre.style.color="green";
       }
-    if(!filtre.test(city.value)){
+      if(city.validity.valueMissing){
         event.preventDefault();
-        missCity.textContent= "veuillez saisir la ville";  
+        missCity.textContent="champs vide";
+        missCity.style.color="yellow";
+      }
+    else if(!filtre.test(city.value)){
+        event.preventDefault();
+        missCity.textContent= "veuillez saisir la ville"; 
+        missCity.style.color="red";
     }
     else{
-      missCity.textContent= "*";
+      missCity.textContent= "OK";
+      missCity.style.color="green";
+    }
+    if(ad.validity.valueMissing){
+        event.preventDefault();
+        missAd.textContent="champ vide";
+        missAd.style.color="yellow"
     }
     if(!filtre4.test(ad.value)){
         event.preventDefault();
-        missAd.textContent= "l'adresse n'est pas valide elle doit comporté:au moins 1 chiffre et ou bis , rue,un espace,et le nom de la rue";    
+        missAd.textContent="l'adresse n'est pas valide elle doit comporté:au moins 1 chiffre et ou bis , rue,un espace,et le nom de la rue";    
+        missAd.style.color="red";
     }
     else{
-      missAd.textContent= "*";
+      missAd.textContent= "OK";
+      missAd.style.color="green";
     } 
-    if(!filtre1.test(CP.value)){
+    
+    if(CP.validity.valueMissing){
+        event.preventDefault();
+        missCP.textContent= "champ vide";
+        missCP.style.color="yellow"
+    }
+    else if(!filtre1.test(CP.value)){
         event.preventDefault();
         missCP.textContent= "code postale invalide verifié qu'il est bien composé de 5 chiffres";
+        missCP.style.color="yellow";
     }
     else{
-      missCP.textContent= "*";
+      missCP.textContent= "OK";
+      missCP.style.color="green";
     }
     if(!filtre2.test(mail.value)){
         event.preventDefault();
