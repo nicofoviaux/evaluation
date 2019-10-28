@@ -59,12 +59,12 @@
             <div class="col">
                 <!--Label OBLIGATOIRE avant chaque Input // Les écritures sont a TOUJOURS mettre entre les <label></label> !!!-->
                 <!--Required permet de forcer le remplissage de ce champs pour pouvoir valider le formulaire-->
-                <label for="nom">Votre nom: </label><span id="missnom">*</span>
-                <input type="text" id="nom" name="nom" class="coord form-control">
+                <label for="nom" >Votre nom: </label><span id="missnom">*</span>
+                <input type="text" id="nom" name="nom" class="coord form-control" required>
             </div>
             <div class="col">
                 <label for="prenom">Votre prénom: </label><span id="misspre">*</span>
-                <input type="text" id="prenom" name="prenom" required class="coord form-control">
+                <input type="text" id="prenom" name="prenom" required class="coord form-control" required>
 <!--Mettre le même name pour pouvoir en cocher qu'un seul sinon sa offre deux possibilités et du coup les deux son cochable-->
             </div>
             <div class="col inine">
@@ -75,7 +75,7 @@
             </div>
             <div class="col">
                 <label for="ddn">Date de naissance: </label><span missddn>*</span>
-                <input  class="form-control" type="date" id="ddn" name="ddn">
+                <input  class="form-control" type="date" id="ddn" name="ddn" required>
             </div>
             <div class="col">
                 <label for="cpostal">Code postal: </label><span id="missCP"></span>
