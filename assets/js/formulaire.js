@@ -104,5 +104,11 @@ function verif(event){
       missEmail.textContent= "OK";
       missEmail.style.color="green";
     }
+    if(ddn.validity.valueMissing){
+        event.preventDefault();
+        missDdn.textContent="champ vide";
+        missDdn.style.color="yellow"
+    }
+    else if()
     console.log(ddn.value);
 }
