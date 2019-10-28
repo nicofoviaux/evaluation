@@ -1,17 +1,16 @@
-var but=document.getElementById("submit");// prend la variable du bouton
+var but=document.getElementById("ok");// prend la variable du bouton
 but.addEventListener("click",verif);//declanche un evenement si le bouton est cliqué et declanche la fonction verif
 function verif(event){
-    var ent= document.getElementById("ent");
-    var per= document.getElementById("per");
-    var ad=document.getElementById("ad");
-    var CP= document.getElementById("CP");
-    var city= document.getElementById("city");
-    var mail= document.getElementById("Email");
-    var tel=document.getElementById("tel");
+    var nom= document.getElementById("nom");
+    var prenom= document.getElementById("prenom");
+    var ddn=document.getElementById("date");
+    var CP= document.getElementById("cpostal");
+    var ad=document.getElementById("adresse");
+    var city= document.getElementById("");
+    var mail= document.getElementById("");
     var filtre=new RegExp(/^.+[a-zA-Z-0-9]+$/);// creation du filtre "au moins 1 lettre ou un chiffre et caractere speciaux"
     var filtre1=new RegExp(/^((?:[013-9]\d)|(?:2[0-9ABab]))\d{3}$/)// filtre du code postale il doit contenir 5 nombres sauf la corse qui contien des lettres
     var filtre2=new RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/i);// filtre email il divise le mail en 4 blocs le 1er accepte lettre, chiffre et caractere le 2nd @ obligatoire 3em pour la sone de texte et le 4em demande un .et des caractéres 
-    var filtre3=new RegExp(/^[0-9]{10}|[0-9\s.]{14}$/);// filtre du numero de telephone peut etre tapé en 0000000000 ou 00.00.00.00.00 ou 00 00 00 00 00  
     var filtre4=new RegExp(/^(\d+)(\D*)(\s)(\D+)(\s)(.+)$/g)// filtre adresse il divise en 6 bloc don le 1er chiffre obligatoire le second pour bis (facultatif) un espace obligatoire la voie /rue ou autre un autre espace obligatoire et le reste de l adresse
     var missEnt=document.getElementById("missEnt1");
     var missPer=document.getElementById("missPer");
